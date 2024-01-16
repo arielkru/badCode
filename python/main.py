@@ -10,17 +10,22 @@ os.chmod(temp_file, stat.S_IWOTH)
 
 with open(temp_file, 'r') as f:
     print(f)
+    
 
 os.chmod("/tmp/foo.txt", stat.S_IXGRP)
+
 tar_file = '/file.tax*'
 
 os.system(tar_file)
 
+
 KEY_SIZE = 1024
 private_rsa_key = rsa.generate_private_key(
+
     public_exponent=65537,
     key_size=KEY_SIZE
 )
+
 
 
 private_dsa_key = dsa.generate_private_key(
