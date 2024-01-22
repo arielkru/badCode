@@ -4,7 +4,7 @@ from Crypto.PublicKey import DSA
 from socket import socket, AF_INET, SOCK_STREAM, SOCK_NONBLOCK
 
 # Set a file write by others. another comment
-temp_file = "/tmp/foo.txt" # comment
+temp_file = "/tmp/foo.txt" # comment another comment
 os.chmod(temp_file, stat.S_IWOTH)
 
 with open(temp_file, 'r') as f:
