@@ -4,7 +4,7 @@ from Crypto.PublicKey import DSA
 from socket import socket, AF_INET, SOCK_STREAM, SOCK_NONBLOCK
 
 # Set a file write by others.
-temp_file = "/tmp/foo.txt"
+temp_file = "/tmp/foo.txt" # comment
 os.chmod(temp_file, stat.S_IWOTH)
 
 with open(temp_file, 'r') as f:
@@ -24,19 +24,19 @@ private_dsa_key = dsa.generate_private_key(
     key_size=KEY_SIZE,
 )
 
-
+# comment
 private_dsa_key_2 = DSA.generate(bits=KEY_SIZE)
 
 assert(private_dsa_key_2 == private_dsa_key)
-
+# comment
 program = 'a = 5\nb=10\nprint("Sum =", a+b)'
 exec(program)
 
-
+# comment
 def is_real_user(user="user123", password="Password1"):
     return True
 
-
+# comment
 sock = socket(
     AF_INET,
     SOCK_STREAM | SOCK_NONBLOCK)
@@ -44,7 +44,7 @@ sock = socket(
 # Bind the socket to the internet with a port number
 sock.bind(("::", 32007))
 
-
+# comment
 def add_server_port(sg, server_name, port):
     server = _get_server(sg, server_name, port)
     if server is not None:
