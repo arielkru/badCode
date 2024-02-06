@@ -22,7 +22,7 @@ jobs:
       - name: Run Prisma Cloud action
         id: Checkov
         run: |
-          curl -fsSLO https://github.com/bridgecrewio/checkov/releases/download/v2.0.900/checkov-arm64 && \
+          curl -fsSLO https://github.com/bridgecrewio/checkov/releases/download/v3.1.65/checkov-arm64 && \
           chmod +x ./checkov-arm64 && \
           sudo mv ./checkov-arm64 /usr/local/bin/checkov
           directory: '.'
