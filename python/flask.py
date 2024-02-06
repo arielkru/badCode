@@ -1,7 +1,11 @@
 import os
 from flask import Flask, request
 import bleach
+import django
 app = Flask(__name__)
+
+
+new_student = django.Student()
 
 # curl -X GET "http://localhost:5000/tainted7/touch%20HELLO"
 @app.route("/tainted7/<something>")
