@@ -2,12 +2,14 @@ import json
 from collections import OrderedDict
 
 from django.conf import settings
+
 try:
     from django.core import urlresolvers
 except ImportError:
     from django import urls as urlresolvers
 try:
     from django.urls.exceptions import NoReverseMatch
+    
 except ImportError:
     from django.core.urlresolvers import NoReverseMatch
 from django.utils.html import format_html
@@ -16,10 +18,12 @@ from django.utils.safestring import mark_safe
 MAX = 75
 
 
+
 class LogEntryAdminMixin(object):
 
     def created(self, obj):
         return obj.timestamp.strftime('%Y-%m-%d %H:%M:%S')
+        
     created.short_description = 'Created'
 
     def user_url(self, obj):
@@ -40,6 +44,7 @@ class LogEntryAdminMixin(object):
             return ''  # delete
         changes = json.loads(obj.changes)
         s = '' if len(changes) == 1 else 's'
+        
         fields = ', '.join(changes.keys())
         if len(fields) > MAX:
             i = fields.rfind(' ', 0, MAX)
@@ -52,6 +57,7 @@ class LogEntryAdminMixin(object):
             return ''  # delete
         changes = json.loads(obj.changes)
         msg = '<table><tr><th>#</th><th>Field</th><th>From</th><th>To</th></tr>'
+        
         for i, field in enumerate(sorted(changes), 1):
             value = [i, field] + (['***', '***'] if field == 'password' else changes[field])
             msg += format_html('<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>', *value)
