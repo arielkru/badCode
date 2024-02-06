@@ -1,4 +1,4 @@
-name: Checkov Github action
+ame: Checkov Github action
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -21,10 +21,8 @@ jobs:
         uses: actions/checkout@master
       - name: Run Prisma Cloud action
         id: Checkov
-        run: |
-          curl -fsSLO https://github.com/bridgecrewio/checkov/releases/download/v3.1.65/checkov-arm64 && \
-          chmod +x ./checkov-arm64 && \
-          sudo mv ./checkov-arm64 /usr/local/bin/checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
           directory: '.'
           soft_fail: true
           api-key: ${{ secrets.BC_API_KEY }}
@@ -36,4 +34,4 @@ jobs:
       - uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: results.sarif 
+          sarif_file: results.sarif
