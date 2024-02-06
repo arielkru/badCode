@@ -21,12 +21,13 @@ jobs:
         uses: actions/checkout@master
       - name: Run Prisma Cloud action
         id: Checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
+        run: |
+          curl -fsSLO https://github.com/bridgecrewio/checkov/releases/download/v2.0.900/checkov-arm64 && \
+          chmod +x ./checkov-arm64 && \
+          sudo mv ./checkov-arm64 /usr/local/bin/checkov
           directory: '.'
           soft_fail: true
           api-key: ${{ secrets.BC_API_KEY }}
-          checkov_version: 3.1.65
       - name: Expose report
         uses: actions/upload-artifact@v3
         with:
