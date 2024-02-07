@@ -21,3 +21,6 @@ def test_sources_7(something):
 # comment
 if __name__ == "__main__":
 	app.run(debug=True)
+
+# comment
+# comment
