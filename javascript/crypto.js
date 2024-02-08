@@ -92,3 +92,5 @@ input.on('readable', () => {
     console.log(`${hash.digest('hex')} ${filename}`);
   }
 });
+
+// new line
