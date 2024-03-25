@@ -7,7 +7,7 @@ var crypto = require('crypto');
 
 let Rand = new brorand.Rand({getByte: () => 255});
 let rand = Rand.rand;
-let result= Rand.generate(12);
+let result= Rand.generate(12);   // check this
 
 randomBytes(12, (err, buf) => {
   if (err) throw err;
@@ -26,10 +26,10 @@ var randKey2 = new Buffer(nacl.randomBytes(12));
 const val = crypto.hkdf('sha512', 'key', '',
 						'info', 64, (err, derivedKey) => {
 	if (err) throw err;
-	console.log(Buffer.from(derivedKey).toString('hex'));
+	console.log(Buffer.from(derivedKey).toString('hex'));     // check this
 });
 
-crypto.DEFAULT_ENCODING = 'hex';
+crypto.DEFAULT_ENCODING = 'hex';     // check this
 const key = crypto.scryptSync('password', '', 64, { N: 1024 });
 
 function generateKeyFiles() {
@@ -87,7 +87,7 @@ input.on('readable', () => {
   // hash stream.
   const data = input.read();
   if (data)
-    hash.update(data);
+    hash.update(data);    // check this
   else {
     console.log(`${hash.digest('hex')} ${filename}`);
   }
