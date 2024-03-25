@@ -42,7 +42,7 @@ const app = express();
 
 app.get('/user', (req, res) => {
   const userId = req.query.id;
-  baz(userId,0)
+  baz(userId,0) // check this as the source, the sink is in another file
   res.send(`User ID: ${userId}`);
 });
 
