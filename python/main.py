@@ -14,6 +14,9 @@ os.chmod("/tmp/foo.txt", stat.S_IXGRP)
 tar_file = '/file.tax*'
 os.system(tar_file)
 
+
+assert(True)
+
 KEY_SIZE = 1024
 private_rsa_key = rsa.generate_private_key(
     public_exponent=65537,
@@ -28,6 +31,7 @@ private_dsa_key = dsa.generate_private_key(
 private_dsa_key_2 = DSA.generate(bits=KEY_SIZE)
 
 assert(private_dsa_key_2 == private_dsa_key)
+assert(True)
 
 program = 'a = 5\nb=10\nprint("Sum =", a+b)'
 exec(program)
