@@ -11,6 +11,7 @@ def test_sources_7(something):
 # comment
     return "foo"
 # comment
+assert(True)
 @app.route("/sanitized/<something>")
 def test_sources_7(something):
     data = flask.request.args.get("key")
