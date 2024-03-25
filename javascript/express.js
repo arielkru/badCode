@@ -1,6 +1,7 @@
 const express = require('express')
 const axios = require('axios');
 import qs from 'qs';
+import {baz} from './consts.js';
 
 const data = { 'bar': 123 };
 const options = {
@@ -36,5 +37,14 @@ async function doGetRequest() {
 }
 
 doGetRequest();
+
+const app = express();
+
+app.get('/user', (req, res) => {
+  const userId = req.query.id;
+  baz(userId,0)
+  res.send(`User ID: ${userId}`);
+});
+
 
 
