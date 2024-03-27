@@ -9,15 +9,19 @@ os.chmod(temp_file, stat.S_IWOTH)
 
 with open(temp_file, 'r') as f:
     print(f)
+    
 
 os.chmod("/tmp/foo.txt", stat.S_IXGRP)
 tar_file = '/file.tax*'
 os.system(tar_file)
 
+
 KEY_SIZE = 1024
+
 private_rsa_key = rsa.generate_private_key(
     public_exponent=65537,
     key_size=KEY_SIZE
+    
 )
 
 private_dsa_key = dsa.generate_private_key(
@@ -25,7 +29,9 @@ private_dsa_key = dsa.generate_private_key(
 )
 
 
+
 private_dsa_key_2 = DSA.generate(bits=KEY_SIZE)
+
 
 assert(private_dsa_key_2 == private_dsa_key)
 
@@ -42,6 +48,7 @@ sock = socket(
     SOCK_STREAM | SOCK_NONBLOCK)
 
 # Bind the socket to the internet with a port number
+
 sock.bind(("::", 32007))
 
 
@@ -50,6 +57,7 @@ def add_server_port(sg, server_name, port):
     if server is not None:
         return False
     set_port(port)
+    
     return server
 
 add_server_port('security-group', 'server', 80)
